@@ -9,19 +9,19 @@ Template ini menyediakan halaman login Wi-Fi, akses trial, status koneksi, logou
 ### Login
 
 <p align="center">
-  <img src="./images/login.jpg" alt="Preview halaman login" width="600">
+  <img src="./images/login.jpg" alt="Preview halaman login" width="300">
 </p>
 
 ### Status koneksi
 
 <p align="center">
-  <img src="./images/status.jpg" alt="Preview halaman status koneksi" width="600">
+  <img src="./images/status.jpg" alt="Preview halaman status koneksi" width="300">
 </p>
 
 ### Logout
 
 <p align="center">
-  <img src="./images/logout.jpg" alt="Preview halaman logout" width="600">
+  <img src="./images/logout.jpg" alt="Preview halaman logout" width="300">
 </p>
 
 > Gambar preview hanya untuk dokumentasi dan tidak perlu diunggah ke folder HotSpot pada router.
