@@ -1,54 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title">Mikrotik Hotspot > Success Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Berhasil terhubung</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&dispplay=swap" />
     $(if refresh-timeout)
-    <script>
-        setTimeout(function(){
-        location.href = './status';
-        },4000)
-    </script>
+    <script>setTimeout(function () { location.href = './status'; }, 4000);</script>
     $(endif)
 </head>
-
 <body>
-    <div class="container-login">
-        $(if login-by == 'trial')
-        <div class="sub-title">Selamat Datang, Pengguna Trial</div>
-    	$(elif login-by != 'mac')
-        <div class="sub-title">Selamat Datang, $(username)</div>
-        $(endif)
-        <!-- <div class="sub-title">Guard</div> -->
-
-        <!-- menu item -->
-        <div class="menu-items">
-
-            <div class="row-items">
-                <div class="title-success"> Anda telah terhubung di jaringan.</div>
-            </div>
-
-        </div>
-        <!-- menu item -->
-
-        <button class="btn-submit" id="login" onclick="status();">Check Status</button>
-
-    </div>
+    <main class="container-login">
+        <header class="brand-header">
+            <div class="logo" aria-hidden="true"><img src="./logo.avif" alt="" onerror="this.style.display='none'"></div>
+            <h1 class="title">Terhubung</h1>
+            $(if login-by == 'trial')
+            <p class="sub-title">Trial aktif selama 5 menit.</p>
+            $(elif login-by != 'mac')
+            <p class="sub-title">Login berhasil.</p>
+            $(else)
+            <p class="sub-title">Koneksi aktif.</p>
+            $(endif)
+        </header>
+        <div class="menu-items"><div class="row-items"><div class="title-success">Koneksi siap digunakan.</div></div></div>
+        <button class="btn-submit" type="button" onclick="location.href='./status.html'">Lihat status koneksi</button>
+        <div class="link"><a href="https://ricoagista.my.id" target="_blank" rel="noopener">ricoagista.my.id</a></div>
+    </main>
 </body>
-
-<script>
-    function status() {
-        console.log(" go to status");
-        window.location.href = "./status.html";
-    }
-</script>
-
-<script type="text/javascript">
-	document.getElementById('title').innerHTML = window.location.hostname + " > success";	
-    document.getElementById('dname').innerHTML = window.location.hostname;	
-</script>
 </html>

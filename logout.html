@@ -1,74 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title">Mikrotik Hotspot > Logout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Logout Wi-Fi</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&dispplay=swap" />
 </head>
-
-<script language="JavaScript">
-
-    function openLogin() {
-	if (window.name != 'hotspot_logout') return true;
-	open('$(link-login)', '_blank', '');
-	window.close();
-	return false;
-    }
-
-</script>
-
 <body>
-    <div class="container-login">
-        <div class="sub-title">Anda telah keluar dari hotspot</div>
-
-        <!-- menu item -->
+    <main class="container-login">
+        <header class="brand-header">
+            <div class="logo" aria-hidden="true"><img src="./logo.avif" alt="" onerror="this.style.display='none'"></div>
+            <h1 class="title">Sesi selesai</h1>
+            <p class="sub-title">Anda telah keluar.</p>
+        </header>
         <div class="menu-items">
-
-            <div class="row-items">
-                <div class="title"> Ip Address</div>
-                <div class="title"> $(ip)</div>
-            </div>
-            <div class="row-items">
-                <div class="title"> Mac Address</div>
-                <div class="title"> $(mac)</div>
-            </div>
-            <div class="row-items">
-                <div class="title"> Upload</div>
-                <div class="title"> $(bytes-in-nice)</div>
-            </div>
-            <div class="row-items">
-                <div class="title"> Download</div>
-                <div class="title"> $(bytes-out-nice)</div>
-            </div>
-            <div class="row-items">
-                <div class="title"> Terkoneksi</div>
-                <div class="title"> $(uptime)</div>
-            </div>
-            $(if remain-bytes-total)
-            <div class="row-items">
-                <div class="title"> Sisa Quota</div>
-                <div class="title"> $(remain-bytes-total-nice)</div>
-            </div>
-            $(endif)
-            $(if session-time-left)
-            <div class="row-items">
-                <div class="title"> Sisa Waktu</div>
-                <div class="title"> $(session-time-left)</div>
-            </div>
-            $(endif)
+            <div class="row-items"><span class="item-label">Terhubung selama</span><span class="item-value">$(uptime)</span></div>
+            <div class="row-items"><span class="item-label">Upload</span><span class="item-value">$(bytes-in-nice)</span></div>
+            <div class="row-items"><span class="item-label">Download</span><span class="item-value">$(bytes-out-nice)</span></div>
         </div>
-        <!-- menu item -->
-
-        <form action="$(link-login)" name="login" onSubmit="return openLogin()">
-        <button class="btn-submit" type="submit">Login Kembali</button>
+        <form class="logout-form" action="$(link-login)" name="login" method="get">
+            <button class="btn-submit" type="submit">Masuk kembali</button>
         </form>
-
-    </div>
+        <div class="link"><a href="https://ricoagista.my.id" target="_blank" rel="noopener">ricoagista.my.id</a></div>
+    </main>
 </body>
-<script type="text/javascript">
-	document.getElementById('title').innerHTML = window.location.hostname + " > logout";
-</script>
 </html>

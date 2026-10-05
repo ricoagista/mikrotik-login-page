@@ -1,40 +1,20 @@
-<html>
+<!DOCTYPE html>
+<html lang="id">
 <head>
-<title>Mikrotik Hotspot > Error</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<meta http-equiv="pragma" content="no-cache">
-<meta http-equiv="expires" content="-1">
-<style type="text/css">
-<!--
-textarea,input,select {
-	background-color: #FDFBFB;
-	border: 1px #BBBBBB solid;
-	padding: 2px;
-	margin: 1px;
-	font-size: 14px;
-	color: #808080;
-}
-
-body{ color: #737373; font-size: 12px; font-family: verdana; }
-
-a, a:link, a:visited, a:active { color: #AAAAAA; text-decoration: none; font-size: 12px; }
-a:hover { border-bottom: 1px dotted #c1c1c1; color: #AAAAAA; }
-img {border: none;}
-td { font-size: 12px; color: #7A7A7A; }
-
--->
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotspot error</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<table width="100%" height="100%">
-
-<tr>
-<td align="center" valign="middle">
-Hotspot ERROR: $(error)<br>
-<br>
-Login page: <a href="$(link-login)">$(link-login)</a>
-</td>
-</tr>
-</table>
+    <main class="container-login">
+        <header class="brand-header">
+            <div class="logo" aria-hidden="true"><img src="./logo.avif" alt="" onerror="this.style.display='none'"></div>
+            <h1 class="title">Terjadi kendala</h1>
+            <p class="sub-title">Hotspot tidak dapat menyelesaikan permintaan ini.</p>
+        </header>
+        <div class="notice" role="alert">$(error)</div>
+        <a class="btn-submit" href="$(link-login)" style="display:flex;align-items:center;justify-content:center;text-decoration:none;margin-top:16px">Kembali ke login</a>
+    </main>
 </body>
 </html>

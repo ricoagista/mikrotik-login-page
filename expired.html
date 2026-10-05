@@ -1,40 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mikrotik Hotspot > Expired Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Akses berakhir</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&dispplay=swap" />
 </head>
-
 <body>
-    <div class="container-login">
-        <!-- <div class="sub-title">Guard</div> -->
-
-        <!-- menu item -->
-        <div class="menu-items">
-
-            <div class="row-items">
-                <div class="title-exp"> Pelanggan yang terhormat. 
-                    <br>
-                    <br>Pemakaian internet anda anda sudah mencapai batas waktu yang di tentukan, silahkan menghubungi @ricoagista di Instagram untuk penggunaan internet, Terima kasih. <br></div>
-                <!-- <div class="title"> 192.168.50.1</div> -->
-            </div>
-
-        </div>
-        <!-- menu item -->
-
-        <button class="btn-submit" id="login" onclick="login();">Login</button>
-    </div>
+    <main class="container-login">
+        <header class="brand-header">
+            <div class="logo" aria-hidden="true"><img src="./logo.avif" alt="" onerror="this.style.display='none'"></div>
+            <h1 class="title">Akses berakhir</h1>
+            <p class="sub-title">Sesi Anda telah berakhir.</p>
+        </header>
+        <div class="menu-items"><div class="row-items"><div class="title-exp">Silakan login kembali.</div></div></div>
+        <button class="btn-submit" type="button" onclick="location.href='./login.html'">Kembali ke login</button>
+        <div class="link"><a href="https://ricoagista.my.id" target="_blank" rel="noopener">ricoagista.my.id</a></div>
+    </main>
 </body>
-
-<script>
-    function login() {
-        console.log(" go to login");
-        window.location.href = "./login.html";
-    }
-</script>
-
 </html>

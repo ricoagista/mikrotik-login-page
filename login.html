@@ -1,131 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title">Mikrotik Hotspot > Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Wi-Fi</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&dispplay=swap" /> -->
 </head>
-
 <script>
     var error = "$(error)";
-    if ((error == "user $(username) has reached uptime limit") || (error == "kode voucher/user $(username) sudah mencapai batas waktu")) {
+    if (error == "user $(username) has reached uptime limit" ||
+        error == "akun Wi-Fi $(username) sudah mencapai batas waktu") {
         window.location.href = "./expired.html";
     }
 </script>
 <body>
-
     $(if chap-id)
     <form name="sendin" action="$(link-login-only)" method="post">
-        <input type="hidden" name="username" />
-        <input type="hidden" name="password" />
-        <input type="hidden" name="dst" value="$(link-orig)" />
-        <input type="hidden" name="popup" value="true" />
+        <input type="hidden" name="username">
+        <input type="hidden" name="password">
+        <input type="hidden" name="dst" value="$(link-orig)">
+        <input type="hidden" name="popup" value="true">
     </form>
-
-    <script type="text/javascript" src="md5.js"></script>
-    <script type="text/javascript">
+    <script src="md5.js"></script>
+    <script>
         function doLogin() {
             document.sendin.username.value = document.login.username.value;
-            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value +
-                '$(chap-challenge)');
+            document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
             document.sendin.submit();
             return false;
         }
     </script>
     $(endif)
 
-    <div class="container-login">
-        <!-- <div class="sub-title">Guard</div> -->
+    <main class="container-login">
+        <header class="brand-header">
+            <div class="logo" aria-hidden="true"><img src="./logo.avif" alt="" onerror="this.style.display='none'"></div>
+            <h1 class="title">Login</h1>
+            <p class="sub-title">Masukkan akun untuk melanjutkan.</p>
+        </header>
 
-        <!-- box info login -->
-        <div class="box" id="infologin">
-        </div>
-        <!-- box info login -->
-
-        <form class="custom-fields" name="login" autocomplete="off" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
-            <input type="hidden" name="dst" value="$(link-orig)" />
-            <input type="hidden" name="popup" value="true" />
-            <div class="username-field">
-                <input type="username" name="username" class="username-input" placeholder="username"
-                    value="$(username)" />
+        <form class="custom-fields" name="login" autocomplete="off"
+              action="$(link-login-only)" method="post"
+              $(if chap-id) onsubmit="return doLogin()" $(endif)>
+            <input type="hidden" name="dst" value="$(link-orig)">
+            <input type="hidden" name="popup" value="true">
+            <div class="field-group">
+                <label class="field-label" for="username">Username</label>
+                <input id="username" type="text" name="username" value="$(username)"
+                       placeholder="Masukkan username" required autofocus>
             </div>
-            <div class="password-field">
-                <input name="password" placeholder="password" class="password-input" type="hidden" />
+            <div class="field-group">
+                <label class="field-label" for="password">Password</label>
+                <input id="password" type="password" name="password"
+                       placeholder="Masukkan password" required>
             </div>
-            <button class="btn-submit" type="submit">Login</button>
+            <button class="btn-submit" type="submit">Masuk ke Wi-Fi</button>
         </form>
 
         $(if trial == 'yes')
-        <div class="link">Gratis <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">klik
-                di sini</a></div>
+        <div class="trial">
+            <span>Tidak punya akun?</span>
+            <a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">Coba gratis 5 menit</a>
+        </div>
+        $(endif)
+        $(if error)
+        <div class="notice" role="alert">$(error)</div>
         $(endif)
 
-        $(if error)<div class="notice">$(error)</div>$(endif)
-        <!-- <div class="link">
-            <a href="#">Forgot Password?</a> or <a href="#">Sign up</a>
-        </div> -->
-
-        <!-- Scroll item -->
-        <!-- <div class="horizontal-scroll-wrapper squares">
-            <div>item 1</div>
-            <div>item 2</div>
-            <div>item 3</div>
-       f     <div>item 4</div>
-            <div>item 5</div>
-            <div>item 6</div>
-            <div>item 7</div>
-            <div>item 8</div>
-        </div> -->
-        <!-- End scroll item -->
-
-    <script type="text/javascript">
-        var hostname = window.location.hostname;
-        document.gegmentById('title').innerHTML = hostname + " > login";
-
-        document.login.username.focus();
-
-        var infologin = document.getElementById('infologin');
-        infologin.innerHTML = "Masukkan Kode Voucher kemudian klik login.";
-
-        // login page 2 mode by Laksamadi Guko
-        var username = document.login.username;
-        var password = document.login.password;
-
-        username.placeholder = "Kode Voucher";
-
-        // set password = username
-        function setpass() {
-            var user = username.value
-            //user = user.toLowerCase();
-            username.value = user;
-            password.value = user;
-        }
-
-        username.onkeyup = setpass;
-
-        // change to voucher mode
-        function voucher() {
-            username.focus();
-            username.onkeyup = setpass;
-            username.placeholder = "Kode Voucher";
-            username.style = "border-radius:3px;"
-            password.type = "hidden";
-            infologin.innerHTML = "Masukkan Kode Voucher kemudian klik login.";
-        }
-
-        // change to member mode
-        function member() {
-            username.focus();
-            username.onkeyup = "";
-            username.placeholder = "Username";
-            username.style = "border-radius:3px 3px 0px 0px;"
-            password.type = "password";
-            infologin.innerHTML = "Masukkan Username dan Password kemudian klik login.";
-        }
-    </script>
+        <div class="link"><a href="https://ricoagista.my.id" target="_blank" rel="noopener">ricoagista.my.id</a></div>
+    </main>
 </body>
-
 </html>

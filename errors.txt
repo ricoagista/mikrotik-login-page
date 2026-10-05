@@ -40,19 +40,19 @@ shutting-down = layanan hotspot tutup
 # If user profile has limit of shared-users, then this error will be shown
 # after reaching this limit
 
-user-session-limit = kode voucher/user sedang aktif $(username)
+user-session-limit = akun Wi-Fi sedang aktif $(username)
 
 # license-session-limit
 # Depending on licence number of active hotspot clients is limited to
 # one or another amount. If this limit is reached, following error is displayed.
 
-license-session-limit = durasi voucher Anda sudah habis ($(error-orig))
+license-session-limit = batas sesi Wi-Fi tercapai ($(error-orig))
 
 # wrong-mac-username
 # If username looks like MAC address (12:34:56:78:9a:bc), but is not
 # a MAC address of this client, login is rejected
 
-wrong-mac-username = kode voucher/user tidak sesuai ($(username)): MAC address ini bukan milik Anda
+wrong-mac-username = akun Wi-Fi tidak sesuai ($(username)): perangkat ini bukan milik akun tersebut
 
 # chap-missing
 # If http-chap login method is used, but hotspot program does not receive
@@ -72,19 +72,19 @@ chap-missing = web browser did not send challenge response (try again, enable Ja
 # has sent an error string with Access-Reject message, then it will
 # override this setting.
 
-invalid-username = kode voucher/user tidak sesuai, masukkan kembali dengan benar.
+invalid-username = username atau password tidak sesuai, silakan coba lagi.
 
 # invalid-mac
 # Local users (on hotspot server) can be bound to some MAC address. If login
 # from different MAC is tried, this error message will be shown.
 
-invalid-mac = kode voucher/user $(username) tidak dapat diaktifkan dari MAC address ini
+invalid-mac = akun Wi-Fi $(username) tidak dapat digunakan dari perangkat ini
 
 # uptime-limit, traffic-limit
 # For local hotspot users in case if limits are reached
 
-uptime-limit = kode voucher/user $(username) sudah mencapai batas waktu
-traffic-limit = kode voucher/user $(username) sudah mencapai batas kuota
+uptime-limit = akun Wi-Fi $(username) sudah mencapai batas waktu
+traffic-limit = akun Wi-Fi $(username) sudah mencapai batas kuota
 
 # radius-timeout
 # User is authenticated by RADIUS server, but no response is received from it,

@@ -1,48 +1,12 @@
+$(if http-status == 302)Hotspot login required$(endif)
+$(if http-header == "Location")$(link-redirect)$(endif)
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="title">Mikrotik Hotspot > Success Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700&dispplay=swap" />
-
+    <meta http-equiv="refresh" content="0; url=$(link-redirect)">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="-1">
+    <title>Hotspot</title>
 </head>
-
-<body>
-    <div class="container-login">
-        $(if login-by == 'trial')
-        <div class="sub-title">Selamat Datang, Pengguna Trial</div>
-    	$(elif login-by != 'mac')
-        <div class="sub-title">Selamat Datang, $(username)</div>
-        $(endif)
-        <!-- <div class="sub-title">Guard</div> -->
-
-        <!-- menu item -->
-        <div class="menu-items">
-
-            <div class="row-items">
-                <div class="title-success"> Anda telah terhubung di jaringan.</div>
-            </div>
-
-        </div>
-        <!-- menu item -->
-
-        <button class="btn-submit" id="login" onclick="status();">Check Status</button>
-
-    </div>
-</body>
-
-<script>
-    function status() {
-        console.log(" go to status");
-        window.location.href = "./status.html";
-    }
-</script>
-
-<script type="text/javascript">
-	document.getElementById('title').innerHTML = window.location.hostname + " > success";	
-    document.getElementById('dname').innerHTML = window.location.hostname;	
-</script>
+<body></body>
 </html>
