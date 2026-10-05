@@ -213,4 +213,5 @@ Setelah instalasi, uji alur berikut:
 
 ## Lisensi
 
-Belum ada lisensi khusus yang ditentukan untuk proyek ini. Tambahkan file `LICENSE` sebelum mendistribusikan proyek secara publik jika Anda ingin menetapkan aturan penggunaan.
+Proyek ini menggunakan [Lisensi MIT](./LICENSE). Lihat file [LICENSE](./LICENSE)
+untuk teks lengkap lisensinya.
